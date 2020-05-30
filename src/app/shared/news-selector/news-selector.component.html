@@ -1,0 +1,27 @@
+<form
+    id="newsForm"
+    [formGroup]="formData"
+    (submit)="getSources(formData)"
+>
+    <select formControlName="source" name="source" id="source" (change)="onChangeSource($event)">
+      <option *ngFor="let source of sourcesList" [value]="source.id" [selected]="currentSourceId == source.id">{{ source.name }}</option>
+    </select>
+
+    <input
+        formControlName="keyword"
+        type="text" name="keyword" placeholder="Type a keyword (optional)"
+    >
+
+    <button
+      type="submit"
+    >Search</button>
+
+    <button
+      type="button" (click)="resetForm()"
+    >Reset Form</button>
+
+    <button *ngIf="userInfo && currentSourceId && !isBookmarked" type="button" id="addToBookmark" class="active" (click)="addBookmark()">Add to bookmarks</button>
+    <button *ngIf="userInfo && isBookmarked" type="button" id="addToBookmark" class="active" (click)="deleteBookmark()">Delete bookmarks</button>
+</form>
+
+

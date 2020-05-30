@@ -1,0 +1,20 @@
+<app-form-login
+    *ngIf="!userIsLoaded"
+    (formSubmit)="getUserInfo($event)"
+></app-form-login>
+
+<app-form-register
+    *ngIf="!userIsLoaded"
+    (formSubmit)="registerUser($event)"
+></app-form-register>
+
+<app-news-selector (sourceChanged)="sourceChangedHandler($event)"></app-news-selector>
+
+<div *ngIf="currentSource">
+  <h3>{{ currentSource.name }}</h3>
+  <p>{{ currentSource.description }}</p>
+</div>
+
+<section id='newsFeed' *ngIf="postList !== null">
+  <app-item-news *ngFor="let item of postList" [post]="item"></app-item-news>
+</section>

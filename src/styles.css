@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #DC1E1E;
+}
+
+body {
+  padding: 8rem;
+}
+
+.button, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  background-color: var(--main-color);
+  border: 0.1rem solid var(--main-color);
+}
+
+.button[disabled]:focus, .button[disabled]:hover, button[disabled]:focus, button[disabled]:hover, input[type="button"][disabled]:focus, input[type="button"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="reset"][disabled]:hover, input[type="submit"][disabled]:focus, input[type="submit"][disabled]:hover {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+  border-color: var(--main-color);
+  outline: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--main-color);
+}
+
+header nav {
+  float: right;
+  cursor: pointer;
+}
+
+#newsForm {
+  border-bottom: .1rem solid var(--main-color);
+  padding-bottom: 1rem;
+}
+
+#newsForm button:nth-child(2n) {
+  margin-left: 20px;
+}
+
+#newsFeed {
+  line-height: 1;
+  list-style: none;
+  width: 80%;
+  margin: auto;
+}
+
+#newsFeed article {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  min-height: 30rem;
+}
+
+#newsFeed .cover {
+  width: calc( 40% - 1rem );
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+#newsFeed ul {
+  padding: 0;
+  margin: auto;
+  list-style: none;
+  width: calc( 60% - 5rem );
+}
+
+#addToBookmark {
+  float: right;
+}
+
+.bookmarks {
+  clear: both;
+  margin: 2rem 0 4rem 0;
+  border: .1rem solid var(--main-color);
+  padding: 1rem;
+}
+
+.bookmarks .bookmarksLit {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.bookmarks .bookmarksLit li button {
+  margin-right: 1rem;
+}

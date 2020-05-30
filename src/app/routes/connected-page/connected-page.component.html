@@ -1,0 +1,12 @@
+<app-bookmark-list></app-bookmark-list>
+
+<app-news-selector (sourceChanged)="sourceChangedHandler($event)"></app-news-selector>
+
+<div *ngIf="currentSource">
+  <h3><a href="{{ currentSource.url }}" target="_blank" rel="noopener noreferrer">{{ currentSource.name }}</a></h3>
+  <p>{{ currentSource.description }}</p>
+</div>
+
+<section id='newsFeed' *ngIf="postList !== null">
+  <app-item-news *ngFor="let item of postList" [post]="item"></app-item-news>
+</section>

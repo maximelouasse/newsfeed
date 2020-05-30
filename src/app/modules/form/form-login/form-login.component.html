@@ -1,0 +1,19 @@
+<form
+    [formGroup]="formData"
+    (submit)="formSubmit.emit(formData.value)"
+>
+    <input
+        formControlName="email"
+        type="email" name="email" required minlength="5" placeholder="Your email"
+    >
+
+    <input
+        formControlName="password"
+        type="password" name="password" required minlength="5" placeholder="Your password"
+    >
+
+    <button
+        [disabled]="!formData.valid"
+        type="submit"
+    >OK</button>
+</form>

@@ -1,0 +1,12 @@
+<header>
+  <h1>News feed</h1>
+  <nav>
+    <ul>
+      <li *ngIf="userData"><a (click)="logout()">Déconnexion</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div *ngIf="userData">
+  <p>Welcome {{ userData.firstname }} {{ userData.lastname }}</p>
+</div>

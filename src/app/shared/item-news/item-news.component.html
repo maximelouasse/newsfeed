@@ -1,0 +1,9 @@
+<article>
+  <div class="cover" [ngStyle]="{'background': 'url(' + post.urlToImage + ')'}"></div>
+  <ul>
+      <li class="publishedAt">{{ post.publishedAt }}</li>
+      <li class="title">{{ post.title }}</li>
+      <li class="description">{{ post.description }}</li>
+      <li class="readMore"><a href="{{ post.url }}" target="_blank">Read more</a></li>
+  </ul>
+</article>
