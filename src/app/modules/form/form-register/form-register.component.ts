@@ -1,32 +1,45 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+/*
+Import
+*/
+  // Angular
+  import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+  import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+//
 
-@Component({
-  selector: 'app-form-register',
-  templateUrl: './form-register.component.html',
-})
-export class FormRegisterComponent implements OnInit {
+/*
+Component configuration
+*/
+  @Component({
+    selector: 'app-form-register',
+    templateUrl: './form-register.component.html',
+  })
+//
 
-  // Declarations
-  public formData: FormGroup;
+/*
+Component class definition
+*/
+  export class FormRegisterComponent implements OnInit {
 
-  @Output() formSubmit = new EventEmitter();
+    // Declarations
+    public formData: FormGroup;
 
-  constructor( private FormBuilder: FormBuilder ) { }
+    @Output() formSubmit = new EventEmitter();
 
-  // Method to reset form
-  private resetForm = ()  => {
-    this.formData = this.FormBuilder.group({
-      firstname: [ null, Validators.required ],
-      lastname: [ null, Validators.required ],
-      email: [ null, Validators.required ],
-      password: [ null, Validators.required ],
-      repeat_password: [ null, Validators.required ]
-    });
-  };
+    constructor( private FormBuilder: FormBuilder ) { }
 
-  ngOnInit(): void {
-    this.resetForm();
+    // Method to reset form
+    private resetForm = ()  => {
+      this.formData = this.FormBuilder.group({
+        firstname: [ null, Validators.required ],
+        lastname: [ null, Validators.required ],
+        email: [ null, Validators.required ],
+        password: [ null, Validators.required ],
+        repeat_password: [ null, Validators.required ]
+      });
+    };
+
+    ngOnInit(): void {
+      this.resetForm();
+    }
   }
-
-}
+//

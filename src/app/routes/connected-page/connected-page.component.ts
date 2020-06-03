@@ -10,7 +10,7 @@ Import
 //
 
 /*
-Componant configuration
+Component configuration
 */
   @Component({
     selector: 'app-connected-page',
@@ -18,68 +18,68 @@ Componant configuration
   })
 //
 
-
 /*
-Componant class definition
+Component class definition
 */
   export class ConnectedPageComponent implements OnInit {
 
     /*
     Declarations
     */
-      public newsCollection: any;
-      public postList: any;
+    public newsCollection: any;
+    public postList: any;
 
-      @Input() currentSource: any;
+    @Input() currentSource: any;
 
-      constructor(
-        private CrudService: CrudService,
-        private ObservablesService: ObservablesService
-      ) {
-        this.ObservablesService.getObservableData('news').subscribe( postListObserver => {
-          // Check value
-          if( postListObserver === null) { this.postList = null }
-          else { this.postList = postListObserver.data.articles}
-        })
-      }
+    constructor(
+      private CrudService: CrudService,
+      private ObservablesService: ObservablesService
+    ) {
+      this.ObservablesService.getObservableData('news').subscribe( postListObserver => {
+        // Check value
+        if( postListObserver === null) { this.postList = null }
+        else { this.postList = postListObserver.data.articles}
+      })
+    }
     //
 
 
     /*
     Methods
     */
-        // Method to get the post list
-        public getNewsList = async () => {
-          this.newsCollection = await this.CrudService.readAllItems('news/sources');
-        };
+      // Method to get the post list
+      public getNewsList = async () => {
+        this.newsCollection = await this.CrudService.readAllItems('news/sources');
+      };
 
-        public sourceChangedHandler( event: any ) {
-          this.ObservablesService.getObservableData('sources').subscribe( sourceListObserver => {
-            // Check value
-            if( sourceListObserver === null) { this.currentSource = null }
-            else {
-              sourceListObserver.forEach(element => {
-                if(element.id == event) {
-                  this.currentSource = element;
-                }
-              });
-            }
-          });
-        }
+      // Method to change the current source on change select source
+      public sourceChangedHandler( event: any ) {
+        this.ObservablesService.getObservableData('sources').subscribe( sourceListObserver => {
+          if( sourceListObserver === null) {
+            this.currentSource = null
+          } else {
+            sourceListObserver.forEach(element => {
+              if(element.id == event) {
+                this.currentSource = element;
+              }
+            });
+          }
+        });
+      }
 
-        public getSource( sourceId: any ) {
-          this.ObservablesService.getObservableData('sources').subscribe( sourceListObserver => {
-            // Check value
-            if( sourceListObserver === null) { this.currentSource = null }
-            else {
-              sourceListObserver.forEach(element => {
-                if(element.id == sourceId) {
-                  this.currentSource = element;
-                }
-              });
-            }
-          });
-        }
+      public getSource( sourceId: any ) {
+        this.ObservablesService.getObservableData('sources').subscribe( sourceListObserver => {
+          if( sourceListObserver === null) {
+            this.currentSource = null
+          } else {
+            sourceListObserver.forEach(element => {
+              if(element.id == sourceId) {
+                this.currentSource = element;
+              }
+            });
+          }
+        });
+      }
     //
 
     /*

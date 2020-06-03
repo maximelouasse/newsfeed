@@ -1,48 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { ObservablesService } from '../../services/observable/observable.service';
-import { Router } from '@angular/router';
+/*
+Import
+*/
+  // Angular
+  import { Component, OnInit } from '@angular/core';
+  import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styles: [
-  ]
-})
+  // Inner
+  import { ObservablesService } from '../../services/observable/observable.service';
+//
 
-export class HeaderComponent implements OnInit {
+/*
+Component configuration
+*/
+  @Component({
+    selector: 'app-header',
+    templateUrl: './header.component.html'
+  })
+//
 
-  /*
-  Declaration
-  */
-      // Properties
-      public userData: any;
-      public userBookmarks: any;
+/*
+Component class definition
+*/
+  export class HeaderComponent implements OnInit {
 
-      constructor(
-          private ObservablesService: ObservablesService,
-          private Router: Router
-      ){
-          // Get user data observer
-          this.ObservablesService.getObservableData('users').subscribe( userDataObserver => {
-            if(userDataObserver === null) { this.userData = null}
-            else { this.userData = userDataObserver }
-          });
+    // Declarations
+    public userData: any;
+    public userBookmarks: any;
 
-          // Get user bookmark observer
-          /*this.ObservablesService.getObservableData('user-bookmarks').subscribe( userBookmarkObserver => {
-            if(userBookmarkObserver === null) { this.userBookmarks = null}
-            else { this.userBookmarks = userBookmarkObserver }
-          });*/
-      }
+    constructor(
+        private ObservablesService: ObservablesService,
+        private Router: Router
+    ){
+        // Get user data observer
+        this.ObservablesService.getObservableData('users').subscribe( userDataObserver => {
+          if(userDataObserver === null) { this.userData = null}
+          else { this.userData = userDataObserver }
+        });
+    }
 
-      // Methods
+    /*
+    Methods
+    */
       public logout() {
         localStorage.removeItem('local-token');
         // Set user info observabale value
         this.ObservablesService.setObservableData('logout', null);
         this.Router.navigateByUrl('/');
       }
-  //
+    //
 
-  ngOnInit(){};
-};
+    ngOnInit(){};
+  };
+//

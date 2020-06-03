@@ -1,10 +1,10 @@
 <form
     id="newsForm"
     [formGroup]="formData"
-    (submit)="getSources(formData)"
+    (submit)="getNews(formData)"
 >
-    <select formControlName="source" name="source" id="source" (change)="onChangeSource($event)">
-      <option *ngFor="let source of sourcesList" [value]="source.id" [selected]="currentSourceId == source.id">{{ source.name }}</option>
+    <select formControlName="source" name="source" id="source" (change)="onChangeSource($event)" [(ngModel)]="currentSourceId">
+      <option *ngFor="let source of sourcesList" [value]="source.id">{{ source.name }}</option>
     </select>
 
     <input

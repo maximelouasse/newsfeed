@@ -11,31 +11,27 @@ Import
 //
 
 /*
-Componant configuration
+Component configuration
 */
   @Component({
     selector: 'app-bookmark-list',
-    templateUrl: './bookmark-list.component.html',
-    styles: [
-    ]
+    templateUrl: './bookmark-list.component.html'
   })
 //
 
 /*
-Componant class definition
+Component class definition
 */
   export class BookmarkListComponent implements OnInit {
 
-    /*
-    Declarations
-    */
+    // Declarations
     public bookmarksList: any;
-    //
+
+    @Output() sourceChanged = new EventEmitter();
 
     constructor( private ObservablesService: ObservablesService, private NewsService: NewsService, private FormBuilder: FormBuilder ) {
       // Get user bookmarks observer
       this.ObservablesService.getObservableData('bookmarks').subscribe( bookmarksListObserver => {
-        // Check value
         if( bookmarksListObserver === null) { this.bookmarksList = null }
         else { this.bookmarksList = bookmarksListObserver}
       });
@@ -44,8 +40,10 @@ Componant class definition
     /*
     Methods
     */
-      public getSources(source: any) {
+      // Method to get news on click bookmark source
+      public getNews( source: any ) {
         this.NewsService.getNews(source);
+        this.sourceChanged.emit(source);
       }
     //
 

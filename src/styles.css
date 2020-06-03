@@ -1,5 +1,5 @@
 :root {
-  --main-color: #DC1E1E;
+  --main-color: #111026;
 }
 
 body {
@@ -8,7 +8,6 @@ body {
 
 .button, button, input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: var(--main-color);
-  border: 0.1rem solid var(--main-color);
 }
 
 .button[disabled]:focus, .button[disabled]:hover, button[disabled]:focus, button[disabled]:hover, input[type="button"][disabled]:focus, input[type="button"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="reset"][disabled]:hover, input[type="submit"][disabled]:focus, input[type="submit"][disabled]:hover {
@@ -46,22 +45,41 @@ header nav {
 #newsFeed {
   line-height: 1;
   list-style: none;
-  width: 80%;
-  margin: auto;
+  width: 100%;
 }
 
 #newsFeed article {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3rem;
-  min-height: 30rem;
+  min-height: 25rem;
+  background-color: #F2F2F2;
 }
 
 #newsFeed .cover {
   width: calc( 40% - 1rem );
   position: relative;
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#newsFeed .publishedAt {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: #FFF;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 6px;
+  font-weight: 800;
+}
+
+#newsFeed .readMore {
+  display: inline-block;
+}
+
+#newsFeed .readMore a {
+  text-decoration: underline;
+  font-size: 12px;
 }
 
 #newsFeed ul {

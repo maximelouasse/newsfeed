@@ -1,6 +1,6 @@
-<app-bookmark-list></app-bookmark-list>
+<app-bookmark-list (sourceChanged)="sourceChangedHandler($event)"></app-bookmark-list>
 
-<app-news-selector (sourceChanged)="sourceChangedHandler($event)"></app-news-selector>
+<app-news-selector (sourceChanged)="sourceChangedHandler($event)" [currentSourceId]="currentSource.id"></app-news-selector>
 
 <div *ngIf="currentSource">
   <h3><a href="{{ currentSource.url }}" target="_blank" rel="noopener noreferrer">{{ currentSource.name }}</a></h3>

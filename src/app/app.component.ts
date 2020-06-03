@@ -12,7 +12,7 @@ Import
 //
 
 /*
-Componant configuration
+Component configuration
 */
   @Component({
     selector: 'app-root',
@@ -23,9 +23,8 @@ Componant configuration
   })
 //
 
-
 /*
-Componant class definition
+Component class definition
 */
   export class AppComponent implements OnInit {
 

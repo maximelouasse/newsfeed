@@ -6,24 +6,23 @@ Import
 //
 
 /*
-Componant configuration
+Component configuration
 */
-    @Component({
-        selector: 'app-item-news',
-        templateUrl: './item-news.component.html'
-    })
+  @Component({
+    selector: 'app-item-news',
+    templateUrl: './item-news.component.html'
+  })
 //
 
-
 /*
-Componant class definition
+Component class definition
 */
-    export class ItemNewsComponent implements OnInit {
+  export class ItemNewsComponent implements OnInit {
 
-        // Input  data from parent component
-        @Input() post: any;
+      // Input  data from parent component
+      @Input() post: any;
 
-        constructor(){}
-        ngOnInit(){};
-    };
+      constructor(){}
+      ngOnInit(){};
+  };
 //
