@@ -42,7 +42,7 @@ Component class definition
     public loginUser = ( data: any ) => {
       this.AuthService.login({ 'email': data.email, 'password': data.password })
       .then( userInfo => {
-        console.log('SUCCESS request', data);
+        //console.log('SUCCESS request', userInfo);
         this.userIsLoaded = true;
         this.Router.navigateByUrl('/connected');
       })
@@ -55,7 +55,7 @@ Component class definition
     public getIdentity = ( token: String ) => {
       this.AuthService.identity({ 'token': token })
       .then( userInfo => {
-        console.log('SUCCESS request', userInfo);
+        //console.log('SUCCESS request', userInfo);
         this.userIsLoaded = true;
         this.Router.navigateByUrl('/connected');
       })
@@ -68,7 +68,7 @@ Component class definition
     public registerUser( data: any ) {
       this.AuthService.register({ 'email': data.email, 'password': data.password, 'firstname': data.firstname, 'lastname': data.lastname }).
       then( registerData => {
-        console.log('SUCCESS register', registerData);
+        //console.log('SUCCESS register', registerData);
         this.loginUser({email: registerData.data.identity.email, password: data.password});
       })
       .catch( error => {
